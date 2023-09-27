@@ -381,6 +381,61 @@ Count: 1320  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
   administrator command: Prepare
 ```
 
+# サーバの処理能力の確認
+
+```
+dstat --cpu
+```
+
+1プロセス1リクエストで処理するアーキテクチャのアプリケーションが1リクエストのみしか起動していない場合、
+2つのCPUがあるサーバでは効率的に使えていないことがわかる
+
+workerプロセスはCPU数より大きくするのが一般的
+
+# k6
+
+https://k6.io/
+
+
+```
+k6
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+Usage:
+  k6 [command]
+
+Available Commands:
+  archive     Create an archive
+  cloud       Run a test on the cloud
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  inspect     Inspect a script or archive
+  login       Authenticate with a service
+  pause       Pause a running test
+  resume      Resume a paused test
+  run         Start a test
+  scale       Scale a running test
+  stats       Show test metrics
+  status      Show test status
+  version     Show application version
+
+Flags:
+  -a, --address string      address for the REST API server (default "localhost:6565")
+  -c, --config string       JSON config file (default "/Users/yuki.nakajima/Library/Application Support/loadimpact/k6/config.json")
+  -h, --help                help for k6
+      --log-format string   log output format
+      --log-output string   change the output for k6 logs, possible values are stderr,stdout,none,loki[=host:port],file[=./path.fileformat] (default "stderr")
+      --no-color            disable colored output
+  -q, --quiet               disable progress updates
+  -v, --verbose             enable verbose logging
+
+Use "k6 [command] --help" for more information about a command.
+```
 
 # SQLチューニング
 
